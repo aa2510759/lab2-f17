@@ -47,6 +47,18 @@ trap(struct trapframe *tf)
   }
 
   switch(tf->trapno){
+  case T_PGFLT: ;
+    uint newsz= KERNBASE-PGSIZE-(myproc()->stackTop*PGSIZE);
+    uint newsz = newsz - PGSIZE;
+    uint oldsz=newsz-PGSIZE;
+    if(rcr2()>oldsz-PGSIZE && rcr2()<newsz){
+      if(allocuvm(myproc()->pgdir,oldsz,newsz)==0){
+        break;
+      }
+      myproc()->stackTop++;
+      cprintf("num of pages: %d \n", myproc()->stackTop);
+    }
+      break;
   case T_IRQ0 + IRQ_TIMER:
     if(cpuid() == 0){
       acquire(&tickslock);
