@@ -71,7 +71,7 @@ int exec(char *path, char **argv)
   /*TODO 2: you will have to change this to the address of the top word in
 the stack page.  Note that KERNBASE is the first word in the kernel
 address space, so this is the word right under that.*/
-  sp = sz;
+  //sp = sz;
   //TODO end
   //end TODO1
   // Push argument strings, prepare rest of stack in ustack.
