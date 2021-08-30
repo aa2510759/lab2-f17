@@ -61,18 +61,13 @@ int exec(char *path, char **argv)
   end_op();
   ip = 0;
 
-  // Allocate two pages at the next page boundary.
-  // Make the first inaccessible.  Use the second as the user stack.
-  /*Start TODO1:This is the part of the code that we need to change to move
-  the stack.  The current code calls allocuvm to create two pages, one for the stack
-  and one as a guard page starting at VA sz which is right after the
-  code and data.  It then clears the page table entry for the guard
-  page.*/
+  // ** Moved the stack position
+  curproc->num_pages = 1;
   sz = PGROUNDUP(sz);
-  if ((sz = allocuvm(pgdir, sz, sz + 2 * PGSIZE)) == 0)
+  uint top = KERNBASE - curproc->num_pages * 2 * PGSIZE;
+  if ((sp = allocuvm(pgdir, top, KERNBASE)) == 0)
     goto bad;
-  clearpteu(pgdir, (char *)(sz - 2 * PGSIZE));
-
+  clearpteu(pgdir, (char *)(KERNBASE));
   /*TODO 2: you will have to change this to the address of the top word in
 the stack page.  Note that KERNBASE is the first word in the kernel
 address space, so this is the word right under that.*/
