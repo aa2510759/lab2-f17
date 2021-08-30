@@ -1,7 +1,7 @@
 80100000 .text
-80106e20 .rodata
-80107885 .stab
-80107886 .stabstr
+80106de0 .rodata
+80107845 .stab
+80107846 .stabstr
 80108000 .data
 8010a520 .bss
 00000000 .debug_line
@@ -18,7 +18,7 @@
 8010a558 panicked
 801003e0 consputc
 80100570 printint
-80106e90 digits.1855
+80106e50 digits.1855
 00000000 exec.c
 00000000 file.c
 00000000 fs.c
@@ -36,9 +36,9 @@
 00000000 kalloc.c
 00000000 kbd.c
 8010a5b4 shift.1695
-801071c0 shiftcode
-801070c0 togglecode
-801070a0 charcode.1696
+80107180 shiftcode
+80107080 togglecode
+80107060 charcode.1696
 80108200 normalmap
 80108100 shiftmap
 80108000 ctlmap
@@ -58,12 +58,12 @@
 801034c0 allocproc
 8010a000 first.1897
 8010a5b8 initproc
-80107480 states.1923
+80107440 states.1923
 00000000 sleeplock.c
 00000000 spinlock.c
 00000000 string.c
 00000000 syscall.c
-80107500 syscalls
+801074c0 syscalls
 00000000 sysfile.c
 80104650 fdalloc
 80104690 create
@@ -75,10 +75,10 @@
 8010a5bc uart
 00000000 vm.c
 80106380 walkpgdir
-80106410 deallocuvm.part.0
+80106410 mappages
+80106490 deallocuvm.part.0
 8010a420 kmap
 00000000 shm.c
-80106570 mappages
 80100270 consoleread
 801062ce vector242
 80105d25 vector119
@@ -132,7 +132,7 @@
 80105230 sys_fork
 8010b5c0 bcache
 80105f86 vector172
-80106e00 shm_open
+80106dc0 shm_open
 801062c2 vector241
 80104070 getcallerpcs
 80104e80 sys_mkdir
@@ -162,9 +162,9 @@
 801048c0 sys_read
 801061a2 vector217
 801044d0 fetchint
-80106a30 setupkvm
+80106a10 setupkvm
 80104390 memcpy
-801069b0 freevm
+80106990 freevm
 8010590d vector1
 80105fce vector178
 80105a4c vector38
@@ -187,7 +187,7 @@
 80100d40 fileinit
 80104050 initlock
 80105d76 vector128
-80106d10 copyout
+80106cd0 copyout
 80105bcf vector81
 80103c00 sleep
 801155e0 shm_table
@@ -218,7 +218,7 @@
 80105cef vector113
 80102390 freerange
 80105d5b vector125
-80106870 allocuvm
+80106860 allocuvm
 801053f5 trapret
 80106196 vector216
 80105b2d vector63
@@ -248,7 +248,7 @@
 80106226 vector228
 80105a70 vector42
 80105cf8 vector114
-80106cd0 uva2ka
+80106c90 uva2ka
 80105faa vector175
 80105e2a vector143
 80100d60 filealloc
@@ -260,7 +260,7 @@
 80105e1e vector142
 80105c7a vector100
 801060e2 vector201
-80106ae0 clearpteu
+80106ac0 clearpteu
 80114d64 top
 801036a0 myproc
 80105400 tvinit
@@ -320,7 +320,7 @@
 80102b10 begin_op
 80105e96 vector152
 80114d68 bottom
-80106ac0 kvmalloc
+80106aa0 kvmalloc
 8010623e vector230
 801043a0 strncmp
 80105a43 vector37
@@ -330,7 +330,7 @@
 801032f0 pipewrite
 80104410 strncpy
 80105b75 vector71
-80106b10 copyuvm
+80106af0 copyuvm
 8010ffc0 ftable
 80105ef6 vector160
 80104580 argptr
@@ -357,7 +357,7 @@
 801109c0 sb
 80104140 acquire
 8010620e vector226
-80106da0 shminit
+80106d60 shminit
 80101f20 nameiparent
 80105aaf vector49
 80105a82 vector44
@@ -366,7 +366,7 @@
 801053dd alltraps
 80105f92 vector173
 80105d13 vector117
-80106e10 shm_close
+80106dd0 shm_close
 80105bd8 vector82
 801061de vector222
 8010594c vector8
@@ -407,7 +407,7 @@
 80114dc0 idt
 801061ae vector218
 801035e0 pinit
-80106990 deallocuvm
+80106970 deallocuvm
 80106202 vector225
 80102760 lapicid
 8010603a vector187
@@ -457,7 +457,7 @@
 8010630a vector247
 801059bc vector22
 801060ee vector202
-801064b0 seginit
+80106530 seginit
 80101910 iunlockput
 80105b7e vector72
 80105ae5 vector55
@@ -477,7 +477,7 @@
 80105e5a vector147
 80103f40 initsleeplock
 80102000 ideinit
-801067b0 loaduvm
+801067a0 loaduvm
 80105c9e vector104
 80105d0a vector116
 80112d20 ptable

@@ -16,10 +16,6 @@
 // Fetch the int at addr from the current process.
 int fetchint(uint addr, int *ip)
 {
-  // ** changed range from sz to KERNBASE
-  //if(addr >= KERNBASE|| addr+4 > KERNBASE )
-  //  return -1;
-
   *ip = *(int *)(addr);
   return 0;
 }
